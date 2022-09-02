@@ -4,6 +4,11 @@
   <img src="src/assets/images/mole.png" width="100px" height="50px"/>
   </h1>
 
+### Testable Demo
+
+You can play with mole here:
+https://reactist215.github.io/
+
 ## Setup
 
 To install the project run the command:
@@ -18,4 +23,20 @@ To run the project run the command:
 
 ```
 yarn start
+```
+
+### build app
+
+To build the app run the command:
+
+```yarn build
+
+```
+
+### deploy app
+
+To deploy the project run the command:
+
+```
+yarn deploy
 ```
