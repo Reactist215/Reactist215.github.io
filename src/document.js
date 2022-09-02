@@ -98,6 +98,7 @@ export function documentReady() {
       if (mole.nodeName.toUpperCase() === 'DIV') {
         let idx = moles.length;
 
+        mole.classList.remove('active');
         mole.addEventListener('click', function () {
           onClickMole(idx);
         });

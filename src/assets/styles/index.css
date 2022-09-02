@@ -47,6 +47,7 @@ body {
   top: 4px;
   display: none;
 }
+
 .moles > .mole.active > img {
   display: block;
 }
