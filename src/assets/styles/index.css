@@ -30,18 +30,41 @@ body {
 }
 
 .moles > .mole {
+  position: relative;
   width: 64px;
   height: 64px;
   border-radius: 50%;
   background-color: black;
   border: 4px solid #ccc;
+  cursor: pointer;
+}
+
+.moles > .mole > img {
+  position: absolute;
+  width: 56px;
+  height: 42px;
+  left: 4px;
+  top: 4px;
+  display: none;
+}
+.moles > .mole.active > img {
+  display: block;
 }
 
 .game-box > .result {
   min-height: 64px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
+  text-align: center;
+}
+
+.result #message {
+  color: chartreuse;
+}
+
+.result > p {
+  margin: 4px 0;
 }
 
 .game-box > .actions {
@@ -62,4 +85,12 @@ button {
 button.primary {
   color: white;
   background-color: #ea4c89;
+}
+
+button.primary:hover {
+  background-color: #ea6ca9;
+}
+
+button.primary:disabled {
+  background-color: #aaa;
 }
