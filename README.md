@@ -29,8 +29,8 @@ yarn start
 
 To build the app run the command:
 
-```yarn build
-
+```
+yarn build
 ```
 
 ### deploy app
