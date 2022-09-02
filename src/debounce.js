@@ -1,3 +1,10 @@
 export function debounce(func, wait) {
-  console.log(func, wait);
+  let timerId;
+
+  return (...args) => {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      func(...args);
+    }, wait);
+  };
 }

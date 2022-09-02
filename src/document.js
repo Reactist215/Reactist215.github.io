@@ -1,4 +1,6 @@
-// const DEBOUNCE_TIME = 1000; // ms
+import { debounce } from './debounce';
+
+const DEBOUNCE_TIME = 1000; // ms
 const TIME_INTERVAL = 2000; // ms
 const HIDE_TIME_RANGE = [200, 400];
 const HOLE_COUNT = 3;
@@ -36,12 +38,14 @@ export function documentReady() {
     }, timeout);
   }
 
+  const debouncedPlayMole = debounce(playMoles, DEBOUNCE_TIME);
+
   function startGame() {
     elapsed = 0;
     clicks = 0;
     document.getElementById('message').innerHTML = '';
 
-    gameTimer = setInterval(playMoles, TIME_INTERVAL);
+    gameTimer = setInterval(debouncedPlayMole, TIME_INTERVAL);
     timer = setInterval(() => {
       elapsed++;
       document.getElementById('elapsed').innerHTML = `Elapsed time: ${elapsed} seconds`;
@@ -78,6 +82,9 @@ export function documentReady() {
     } else {
       clicks++;
       document.getElementById('clicks').innerHTML = `Clicks: ${clicks}`;
+      setTimeout(() => {
+        debouncedPlayMole();
+      }, DEBOUNCE_TIME);
     }
   }
 
@@ -90,6 +97,7 @@ export function documentReady() {
     document.getElementById('moles').childNodes.forEach((mole) => {
       if (mole.nodeName.toUpperCase() === 'DIV') {
         let idx = moles.length;
+
         mole.addEventListener('click', function () {
           onClickMole(idx);
         });
