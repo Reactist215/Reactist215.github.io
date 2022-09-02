@@ -48,6 +48,10 @@ body{
   display:none;
 }
 
+.moles > .mole.active > img{
+  display:block;
+}
+
 .game-box > .result{
   min-height:64px;
   display:flex;
